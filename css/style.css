@@ -1,0 +1,190 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+* {
+    font-family: 'Sedgwick Ave', cursive;
+    list-style: none;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.my_clock {
+    padding: 15px 0;
+    background-color: #828485;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.clock {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 15px solid rgb(100, 100, 131);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.first {
+    width: 100%;
+    height: 100%;
+    background: url("../img/foto-3.jpg") center center/cover no-repeat;
+    position: absolute;
+    transition: opacity 1s;
+}
+
+.sec {
+    width: 100%;
+    height: 100%;
+    background: url("../img/foto-1.jpg") center center/cover no-repeat;
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+    /* transform: translateX(-100%); */
+    transition: opacity 1s;
+}
+
+.clock:hover .first {
+    opacity: 1;
+}
+
+.clock:hover .sec {
+    opacity: 0;
+}
+
+
+/* ********************************** */
+
+.clock_numbers li {
+    position: absolute;
+    font-size: 35px;
+    color: rgb(27, 27, 46);
+}
+
+.clock_numbers li:first-child {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(27, 27, 46);
+    z-index: 5;
+}
+
+.clock_numbers li:nth-child(2) {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.clock_numbers li:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(27, 27, 46);
+    z-index: 5;
+}
+
+.clock_numbers li:nth-child(4) {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.clock:hover li {
+    color: rgb(100, 100, 131);
+}
+
+
+/* ******************************** */
+
+.hours {
+    height: 110px;
+    width: 15px;
+    background: rgb(100, 100, 131);
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    /* transform: translatex(-50%); */
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    border-top-left-radius: 90%;
+    border-top-right-radius: 90%;
+    animation: step 216000s steps(216000, end) infinite;
+    transform-origin: bottom;
+    z-index: 2;
+}
+
+.minutes {
+    height: 165px;
+    width: 15px;
+    background: rgb(27, 27, 46);
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    border-top-left-radius: 90%;
+    border-top-right-radius: 90%;
+    animation: step 3600s steps(3600, end) infinite;
+    transform-origin: bottom;
+    z-index: 1;
+}
+
+.seconds {
+    height: 180px;
+    width: 5px;
+    background: rgb(100, 100, 131);
+    position: absolute;
+    right: 51%;
+    bottom: 50%;
+    /* transform: translateX(-50%); */
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+    border-top-left-radius: 90%;
+    border-top-right-radius: 90%;
+    animation: step 60s linear infinite;
+    transform-origin: bottom;
+    z-index: 3;
+}
+
+.clock:hover div {
+    animation-play-state: paused;
+}
+
+@keyframes step {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.round {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(27, 27, 46);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+    top: 45%;
+    left: 48%;
+    transform: translateX(-50%);
+}
